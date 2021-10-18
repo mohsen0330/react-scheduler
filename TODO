@@ -1,0 +1,11 @@
+#in scheduling
+    -make it hourly
+    -default view is more details
+    -remove location, timezone, allday check box
+    -add attendees
+    -add reminder check box
+#in program logic
+    -add multiple schedules
+    -make sure no conflicts between schedules
+#components
+    -add customizations
