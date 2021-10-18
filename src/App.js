@@ -5,21 +5,6 @@ import { Inject,ScheduleComponent,Day, Week, WorkWeek, Month, Agenda } from '@sy
 
 
 function App() {
-  const [sched, setSched] = useState([
-    {
-      id: 123,
-      title: '123',
-      dateStart:'123',
-      dateEnd:'123',
-      attendees:'123',
-      description:'123',
-      reminder:'true',
-    },
-    {
-
-    }
-  ]
-  )
   return (
     <div className='App'>
       <ScheduleComponent>
