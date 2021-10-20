@@ -1,0 +1,22 @@
+{  "scheduleData" : [{"Id":1,"Subject":"New Year","StartTime":"2021-01-01T00:00:00Z","EndTime":"2021-01-01T00:00:00Z","IsAllDay":true,"IsBlock":false,"IsReadonly":false,"RoomId":1,"ResourceId":1},
+{"Id":2,"Subject":"May Day","StartTime":"2021-05-01T00:00:00Z","EndTime":"2021-05-01T00:00:00Z","IsAllDay":true,"IsBlock":false,"IsReadonly":false,"RoomId":1,"ResourceId":1},
+{"Id":3,"Subject":"Bering Sea Gold","StartTime":"2021-05-02T09:00:00Z","EndTime":"2021-05-02T10:30:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RecurrenceRule":"FREQ=DAILY;INTERVAL=2;COUNT=10","RoomId":1,"ResourceId":1},
+{"Id":4,"Subject":"Bering Sea Gold","StartTime":"2021-05-03T04:00:00Z","EndTime":"2021-05-03T05:00:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RoomId":1,"ResourceId":1},
+{"Id":5,"Subject":"What Happened Next?","StartTime":"2021-05-04T03:00:00Z","EndTime":"2021-05-04T04:30:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RoomId":1,"ResourceId":1},
+{"Id":6,"Subject":"Weekly Planet","StartTime":"2021-05-05T06:00:00Z","EndTime":"2021-05-05T07:30:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RecurrenceRule":"FREQ=WEEKLY;BYDAY=MO,WE,FR;INTERVAL=1;COUNT=15","RoomId":1,"ResourceId":1},
+{"Id":7,"Subject":"Alaska: The Last Frontier","StartTime":"2021-05-07T08:00:00Z","EndTime":"2021-05-07T09:30:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RoomId":1,"ResourceId":1},
+{"Id":8,"Subject":"Sports Day","StartTime":"2021-05-10T06:00:00Z","EndTime":"2021-05-10T16:30:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RoomId":1,"ResourceId":1},
+{"Id":9,"Subject":"Managing Resources for learning","StartTime":"2021-05-11T06:00:00Z","EndTime":"2021-05-11T16:30:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RecurrenceRule":"FREQ=DAILY;INTERVAL=2;COUNT=10","RoomId":1,"ResourceId":1},
+{"Id":10,"Subject":"Conference Meeting","StartTime":"2021-05-15T06:00:00Z","EndTime":"2021-05-15T16:30:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RecurrenceRule":"FREQ=WEEKLY;BYDAY=FR;INTERVAL=2;COUNT=20","RoomId":1,"ResourceId":1},
+{"Id":11,"Subject":"Crab Rave","StartTime":"2021-10-20T12:59:00Z","EndTime":"2021-10-20T14:59:00Z","IsAllDay":true,"IsBlock":false,"IsReadonly":true,"RoomId":1,"ResourceId":1},
+{"Id":12,"Subject":"Final presentation","StartTime":"2021-06-24T07:55:00Z","EndTime":"2021-06-24T09:55:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RoomId":2,"ResourceId":2},
+{"Id":13,"Subject":"Guitar Class","StartTime":"2021-01-22T10:17:00Z","EndTime":"2021-01-22T12:17:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RoomId":3,"ResourceId":3},
+{"Id":14,"Subject":"Birthday Celebration","StartTime":"2021-11-15T03:23:00Z","EndTime":"2021-11-15T05:23:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RoomId":1,"ResourceId":4},
+{"Id":15,"Subject":"Close Encounters","StartTime":"2021-07-12T20:58:00Z","EndTime":"2021-07-12T22:58:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RoomId":2,"ResourceId":5},
+{"Id":16,"Subject":"Opening ceremony","StartTime":"2021-09-23T22:07:00Z","EndTime":"2021-09-24T00:07:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RoomId":3,"ResourceId":6},
+{"Id":17,"Subject":"Farewell Celebration","StartTime":"2021-03-18T02:09:00Z","EndTime":"2021-03-18T04:09:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RoomId":1,"ResourceId":1},
+{"Id":18,"Subject":"HighWay Thru Hell","StartTime":"2021-01-04T15:02:00Z","EndTime":"2021-01-04T17:02:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RoomId":2,"ResourceId":2},
+{"Id":19,"Subject":"Doctor checkup","StartTime":"2021-01-25T03:53:00Z","EndTime":"2021-01-25T05:53:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RoomId":3,"ResourceId":3},
+{"Id":20,"Subject":"Final presentation","StartTime":"2021-02-26T11:23:00Z","EndTime":"2021-02-26T13:23:00Z","IsAllDay":false,"IsBlock":false,"IsReadonly":false,"RoomId":1,"ResourceId":4}
+]
+}

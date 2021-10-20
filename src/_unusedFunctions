@@ -1,0 +1,86 @@
+/*
+useEffect(() => {
+    const getSchedule = async () => {
+     const schedulesFromServer = await fetchSchedule()
+     //localData: EventSettingsModel = { dataSource: schedulesFromServer }
+    }
+      getSchedule()
+  }, [])
+
+  const fetchSchedule = async () => {
+    const res = await fetch ('http://localhost:5000/scheduleData')
+    const data = await res.json()
+
+    return data
+  }
+  const remoteData = new DataManager({
+    url: 'http://localhost:5000/scheduleData',
+    adaptor: new JsonAdaptor,
+    crossDomain: true
+  })
+  let localData = JSON.parse(remoteData);
+
+  onCreate() {
+  this.change();
+  console.log('Schedule <b>Create Begin</b> event called<hr>');
+}
+onActionBegin() {
+  this.change();
+  console.log('Schedule <b>Action Begin</b> event called<hr>');
+}
+onActionComplete() {
+  this.change();
+  console.log('Schedule <b>Action Complete</b> event called<hr>');
+}
+onActionFailure() {
+  this.change();
+  console.log('Schedule <b>Action Failure</b> event called<hr>');
+}
+onCellDoubleClick() {
+  this.change();
+  console.log('SChedule <b>Cell Double Click</b> event called<hr>');
+}
+onCellClick() {
+  this.change();
+  console.log('Schedule <b>Cell Click</b> event called<hr>');
+}
+onNavigating() {
+  this.change();
+  console.log('Schedule <b>Navigating</b> event called<hr>');
+}
+onDestroyed() {
+  this.change();
+  this.change();
+  console.log('Schedule <b>Destroyed</b> event called<hr>');
+}
+onEventClick() {
+  this.change();
+  console.log('Schedule <b>Event Click</b> event called<hr>');
+}
+onPopupOpen() {
+  this.change();
+  console.log('Schedule <b>Popup Open</b> event called<hr>');
+}
+onClick() {
+    this.scheduleObj.exportToICalendar();
+}
+onSelect(args) {
+    this.scheduleObj.importICalendar(args.event.target.files[0]);
+}
+change() {
+  let Data = [{
+    Id: 1,
+    Subject: 'Conference',
+    StartTime: new Date(2018, 1, 12, 9, 0),
+    EndTime: new Date(2018, 1, 12, 10, 0),
+    IsAllDay: false
+}, {
+    Id: 2,
+    Subject: 'Meeting',
+    StartTime: new Date(2018, 1, 15, 10, 0),
+    EndTime: new Date(2018, 1, 15, 11, 30),
+    IsAllDay: false
+}];
+  this.scheduleObj.addEvent(Data);
+}
+*/

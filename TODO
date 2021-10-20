@@ -1,5 +1,5 @@
 #in scheduling
-    -make it hourly
+    -remove yearly recurrence
     -default view is more details
     -remove location, timezone, allday check box
     -add attendees
