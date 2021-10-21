@@ -140,7 +140,9 @@ onClick() {
 onSelect(args) {
     this.scheduleObj.importICalendar(args.event.target.files[0]);
 }
-change() {
+Change() {
+  this.dataSource.scheduleData.addEvent(this.scheduleData.data);
+    
 }
 editorTemplate(props) {
   return (props !== undefined ? <table className="custom-event-editor" style={{ width: '100%', cellpadding: '5' }}><tbody>
