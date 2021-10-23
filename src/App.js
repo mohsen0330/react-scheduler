@@ -1,20 +1,20 @@
 import './App.css';
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import { Inject,ScheduleComponent, RecurrenceEditorComponent, Day, Week, WorkWeek, Month, Agenda, ICalendarExport, ICalendarImport, EventSettingsModel, Resize, ExcelExport, DragAndDrop, ViewsDirective, ViewDirective } from '@syncfusion/ej2-react-schedule'
+
+import { Inject,ScheduleComponent, RecurrenceEditorComponent, Day, Week, WorkWeek, Month, Agenda, ICalendarExport, ICalendarImport, EventSettingsModel, Resize, ExcelExport, DragAndDrop, ViewsDirective, ViewDirective, } from '@syncfusion/ej2-react-schedule'
 import Button from './Button';
 import { extend, isNullOrUndefined  } from '@syncfusion/ej2-base';
 import { UploaderComponent } from '@syncfusion/ej2-react-inputs';
-import { ChangeEventArgs, DateTimePickerComponent } from '@syncfusion/ej2-react-calendars';
+import { ChangeEventArgs, DateTimePickerComponent, TimeMaskPlaceholder } from '@syncfusion/ej2-react-calendars';
 import { MultiSelectComponent  } from '@syncfusion/ej2-react-dropdowns';
-import { DataManager, JsonAdaptor, Query, WebApiAdaptor  } from '@syncfusion/ej2-data'
-import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import * as dataSource from './schedule.json';
+import { Profiler } from 'react/cjs/react.production.min';
 
 class App extends React.Component {
   constructor() {
     super(...arguments);
-    this.scheduleObj = ScheduleComponent;
+    //this.scheduleObj = ScheduleComponent;
     this.multiple = false;
     this.showFileList = false;
     this.allowedExtensions = '.ics';
@@ -30,7 +30,6 @@ class App extends React.Component {
       StartTime: new Date(2021, 10, 22, 10, 0),
       EndTime: new Date(2021, 10, 22, 12, 30)
     }];
-    //this.upState [showUp, setShowUp] = useState(false)
     this.ownerData = [
       { OwnerText: 'Person-1', Id: 1, OwnerColor: '#ffaa00' },
       { OwnerText: 'Person-2', Id: 2, OwnerColor: '#f8a398' },
@@ -94,6 +93,7 @@ onExportClick() {
 
 onActionComplete(args){
   console.log(args);
+  //this.scheduleObj.crudModule.saveEvent();
   console.log('Schedule <b>Action Complete</b> event called<hr>');
 }
 
@@ -121,9 +121,6 @@ onEventClick() {
   console.log('Schedule <b>Event Click</b> event called<hr>');
 }
 
-onPopupOpen() {
-  console.log('Schedule <b>Popup Open</b> event called<hr>');
-}
 onAddEvent() {
   //this.scheduleObj.addEvent(Data);
 }
@@ -131,7 +128,7 @@ onGetEvent() {
   this.scheduleObj.getEvents();
 }
 onSaveEvent() {
-  this.scheduleObj.saveEvents(this.scheduleObj.getEvents());
+  //this.scheduleObj.saveEvents(this.scheduleObj.getEvents());
 }
 onClick() {
     this.scheduleObj.exportToICalendar();
@@ -141,8 +138,12 @@ onSelect(args) {
     this.scheduleObj.importICalendar(args.event.target.files[0]);
 }
 Change() {
-  this.dataSource.scheduleData.addEvent(this.scheduleData.data);
-    
+  //  this.dataSource.scheduleData= [...this.data, this.scheduleObj.data]; 
+}
+onDataBound() {
+ // let events = this.scheduleObj.getEvents();
+ // this.appendElement('Events present on scheduler <b>' + event.length + '<b><hr>');
+ //return events;
 }
 editorTemplate(props) {
   return (props !== undefined ? <table className="custom-event-editor" style={{ width: '100%', cellpadding: '5' }}><tbody>
@@ -176,7 +177,7 @@ editorTemplate(props) {
         actionFailure={this.onActionFailure.bind(this)} cellClick={this.onCellClick.bind(this)} cellDoubleClick={this.onCellDoubleClick.bind(this)} 
         destroyed={this.onDestroyed.bind(this)} navigating={this.onNavigating.bind(this)} eventClick={this.onEventClick.bind(this)} 
         popupOpen={this.onPopupOpen.bind(this)} editorTemplate={this.editorTemplate.bind(this)} quickInfoOnSelectionEnd={true} enablePersistence={true} workHours={{ highlight: false }} 
-        addEvent={ this.onAddEvent.bind(this)} getEvents={this.onGetEvent.bind(this)} saveEvents={this.onSaveEvent.bind(this)}>
+        addEvent={ this.onAddEvent.bind(this)} getEvents={this.onGetEvent.bind(this)} dataBound={this.onDataBound.bind(this)}>
           <ViewsDirective>
                 <ViewDirective option='Day'/>
                 <ViewDirective option='Week'/>

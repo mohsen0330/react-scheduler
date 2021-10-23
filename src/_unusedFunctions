@@ -1,4 +1,7 @@
 /*
+import { DataManager, JsonAdaptor, Query, WebApiAdaptor  } from '@syncfusion/ej2-data'
+import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
+
 useEffect(() => {
     const getSchedule = async () => {
      const schedulesFromServer = await fetchSchedule()
