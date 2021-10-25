@@ -16,13 +16,51 @@ import * as dataSource from './schedule.json';
 import Header from './Header'
 import User from './user';
 import UniqueId from 'react-html-id';
+// import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
 
 
 export default class App extends React.Component {
-  
+
   constructor() {
     super(...arguments);
     UniqueId.enableUniqueIds(this);
+    this.scheduleObj = ScheduleComponent;
+    this.data = extend([], dataSource.scheduleData, null, false);
+
+//   this.CALENDAR_ID = 'a8tdqbnknb1d5792ov1a2393rc@group.calendar.google.com';
+//   this.PUBLIC_KEY = 'AIzaSyBn1iAs7ybGnZkMSXJdkg3yhQhPcZpdjOs';
+
+//     var dataManager = new DataManager({
+//       url: 'https://www.googleapis.com/calendar/v3/calendars/' + this.CALENDAR_ID + '/events?key=' + this.PUBLIC_KEY,
+//       adaptor: new WebApiAdaptor,
+//       crossDomain: true
+//   });
+//   this.scheduleObj.dataBinding = (function (e) {
+//     var items = e.result.items;
+//     var scheduleData = [];
+//     if (items.length > 0) {
+//         for (var i = 0; i < items.length; i++) {
+//             var event = items[i];
+//             var when = event.start.dateTime;
+//             var start = event.start.dateTime;
+//             var end = event.end.dateTime;
+//             if (!when) {
+//                 when = event.start.date;
+//                 start = event.start.date;
+//                 end = event.end.date;
+//             }
+//             scheduleData.push({
+//                 Id: event.id,
+//                 Subject: event.summary,
+//                 StartTime: new Date(start),
+//                 EndTime: new Date(end),
+//                 IsAllDay: !event.start.dateTime
+//             });
+//         }
+//     }
+//     e.result = scheduleData;
+// });
+//(this.scheduleObj).append('#Schedule');
     // this.resourceDataSource = {
     //   users: [
     //     {uid:this.nextUniqueId(),Name:'Panel0',Id:0,Color:'#ea7a57'},
@@ -39,15 +77,19 @@ export default class App extends React.Component {
           {Name:'Padilla', id:35, uid:this.nextUniqueId(),color:'#ff0000'},
           {Name:'Villaverde', id:40, uid:this.nextUniqueId(),color:'#ff00ff'},
           {Name:'Torres', id:45, uid:this.nextUniqueId(),color:'#0000ff'}
-        ]
+        ],
+        view: [false]
       }
  
-    this.scheduleObj = ScheduleComponent;
+    
     this.multiple = false;
     this.showFileList = false;
-    this.enableAdaptiveUI = false;
+    //this.enableAdaptiveUI = false;
+    
     this.allowedExtensions = '.ics';
-    this.data = extend([], dataSource.scheduleData, null, true);
+    
+    // this.data = extend([], dataSource.scheduleData, null, false);
+
     this.timezone = new Timezone();
 
     //this.upState [showUp, setShowUp] = useState(false)
@@ -117,6 +159,8 @@ onActionBegin(args) {
     let eventField = this.scheduleObj.eventFields;
     let startDate = eventData[eventField.startTime];
     let endDate = eventData[eventField.endTime];
+    //let groupIndex = eventData.ResourceId[0] - 1; 
+    // args.cancel = !this.scheduleObj.isSlotAvailable(startDate, endDate, groupIndex); 
     args.cancel = !this.scheduleObj.isSlotAvailable(startDate, endDate);
 }
   console.log('Schedule <b>Action Begin</b> event called<hr>');
@@ -197,9 +241,9 @@ onSelect(args) {
 // {/* <tr><td className="e-textlabel">Attendees</td><td colSpan={4}>
 //   <MultiSelectComponent className="e-field" placeholder='Choose Attendees' data-name="OwnerId" dataSource={this.ownerData} fields={this.fields} value={props.OwnerId}/>
 // </td></tr> */}
-// <tr><td className="e-textlabel">Panels</td><td colSpan={4}>
+// {/* <tr><td className="e-textlabel">Panels</td><td colSpan={4}>
 //   <MultiSelectComponent className="e-field" placeholder='Choose Panels' data-name="Id" dataSource={this.resourceDataSource} fields={this.fields} value={props.Id}/>
-// </td></tr>
+// </td></tr> */}
 // <tr><td className="e-textlabel">From</td><td colSpan={4}>
 //   <DateTimePickerComponent format='dd/MM/yy hh:mm a' id="StartTime" data-name="StartTime" value={new Date(props.startTime || props.StartTime)} className="e-field"></DateTimePickerComponent>
 // </td></tr>
@@ -249,7 +293,16 @@ changeUserName = (uid, e) => {
   users[index] = user;
   this.setState({users})
 }
-
+changeView(){
+  let view = Object.assign([], this.state.view);
+  if(this.state.view===true){
+    view=false;
+    this.setState({view});
+  } else{
+    view=true;
+    this.setState({view});
+  }
+}
   render () {
     return (
       <div className='App'>
@@ -271,13 +324,12 @@ changeUserName = (uid, e) => {
          
             <br></br>
             {/*  <button onClick={this.changeView.bind(this, this.check)}>View</button> */}
-            
-        
-        <Button color='black' text='Export' id='ics-export' onClick={this.onClick.bind(this)}/>
-        <Button color='black' text='Import' id='ics-import' onClick={this.onAdd}/>
+        <Button color='grey' text='Export' id='ics-export' onClick={this.onClick.bind(this)}/>
+        <Button color='grey' text='Change View' onClick={this.changeView.bind(this)}/>
+        {/* <Button color='black' text='Import' id='ics-import' onClick={this.onAdd}/> */}
         {/*</div><Button id='view-adaptiv-ui' text="View" adaptiveView={this.adaptiveView.bind(this)}/>*/}
         <UploaderComponent id='fileUpload' type='file' allowedExtensions={this.allowedExtensions} cssClass='calendar-import' buttons={{ browse: 'Choose file' }} multiple={this.multiple} showFileList={this.showFileList} selected={this.onSelect.bind(this)}></UploaderComponent>
-        <ScheduleComponent ref={sched => this.scheduleObj = sched}  width='100%' height='1000px' enableAdaptiveUI={this.enableAdaptiveUI} eventSettings={{ dataSource: this.data }}  startHour='07:30' endHour='21:00' timezone='UTC+8' group={this.groupData}
+        <ScheduleComponent ref={sched => this.scheduleObj = sched}  width='100%' height='1000px' enableAdaptiveUI={this.state.view} eventSettings={{ dataSource: this.data }}  startHour='07:30' endHour='21:00' timezone='UTC+8' group={this.groupData}
          created={this.onCreate.bind(this)} actionBegin={this.onActionBegin.bind(this)} actionComplete={this.onActionComplete.bind(this)} 
          actionFailure={this.onActionFailure.bind(this)} cellClick={this.onCellClick.bind(this)} cellDoubleClick={this.onCellDoubleClick.bind(this)} 
          destroyed={this.onDestroyed.bind(this)} navigating={this.onNavigating.bind(this)} eventClick={this.onEventClick.bind(this)} 
@@ -291,7 +343,7 @@ changeUserName = (uid, e) => {
             <ResourcesDirective>
               <ResourceDirective 
                 field="ResourceId" 
-                title="ResourceName"
+                title="Resource Name"
                 name="Resources"
                 textField="Name"
                 idField="id"
